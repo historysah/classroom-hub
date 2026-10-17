@@ -1,0 +1,21 @@
+{
+  "name": "classroom-hub",
+  "version": "1.0.0",
+  "private": true,
+  "description": "교사를 위한 로컬 중심 교실 도구함",
+  "engines": {"node": ">=22.13"},
+  "scripts": {
+    "test": "node verify.cjs && node verify-diary.cjs && node verify-privacy.cjs",
+    "test:public": "node verify-public.cjs",
+    "start": "node server.cjs --open"
+  },
+  "dependencies": {
+    "jszip": "3.10.1",
+    "pdf-lib": "1.17.1",
+    "pdfjs-dist": "6.2.108",
+    "qrcode-generator": "2.0.4",
+    "sql.js": "1.15.0",
+    "xml-js": "1.6.11"
+  },
+  "devDependencies": {"@napi-rs/canvas": "0.1.80"}
+}

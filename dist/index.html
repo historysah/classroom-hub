@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#dceeff">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' file:; style-src 'self' file:; img-src 'self' file: data:; connect-src 'self'; worker-src 'none'; object-src 'none'; form-action 'none'; base-uri 'none'">
+  <meta name="description" content="교사를 위한 작은 도구 허브와 교실 타이머">
+  <title>교실 도구함 — 수업을 위한 작은 도구들</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./tools/catalog.js" defer></script>
+  <script src="./app.js" defer></script>
+  <script src="./tools/timer.js" defer></script>
+  <script src="./vendor/pdfjs/pdf.worker.classic.js" defer></script>
+  <script src="./vendor/pdfjs/pdf.classic.js" defer></script>
+  <script src="./vendor/pdfjs/binary-data.js" defer></script>
+  <script src="./tools/embedded-pdf-data.js" defer></script>
+  <script src="./tools/text-count.js" defer></script>
+  <script src="./tools/pdf-counter.js" defer></script>
+  <script src="./vendor/qrcode/qrcode.js" defer></script>
+  <script src="./tools/qr-maker.js" defer></script>
+  <script src="./vendor/sqljs/sql-asm.js" defer></script>
+  <script src="./tools/diary-folder-store.js" defer></script>
+  <script src="./tools/diary.js" defer></script>
+  <script src="./vendor/jszip/jszip.min.js" defer></script>
+  <script src="./vendor/xml-js/xml-js.min.js" defer></script>
+  <script src="./vendor/pdf-lib/pdf-lib.min.js" defer></script>
+  <script src="./tools/privacy-core.js" defer></script>
+  <script src="./tools/privacy-xlsx.js" defer></script>
+  <script src="./tools/privacy-pdf.js" defer></script>
+  <script src="./tools/privacy-tool.js" defer></script>
+</head>
+<body>
+  <div class="marquee" aria-hidden="true"><div class="marquee-track">CLASSROOM TOOLS ✳ 수업의 순간을 가볍게 ✳ CLASSROOM TOOLS ✳ 수업의 순간을 가볍게 ✳ CLASSROOM TOOLS ✳ 수업의 순간을 가볍게 ✳</div></div>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="교실 도구함 홈"><span class="brand-mark">교</span><span>교실 도구함</span></a>
+    <nav aria-label="주 메뉴"><a class="nav-pill" href="#home" data-nav="home">도구 모음</a><a class="nav-pill" href="#timer" data-nav="timer">교실 타이머</a><a class="nav-pill" href="#qr-maker" data-nav="qr-maker">QR 만들기</a><a class="nav-pill" href="#diary" data-nav="diary">일기장</a></nav>
+    <a class="header-cta" href="#timer">타이머 열기 <span aria-hidden="true">↗</span></a>
+  </header>
+  <main>
+    <section id="home-view" class="view" aria-labelledby="hero-title">
+      <div class="hero band-blue">
+        <div class="hero-inner">
+          <div class="hero-copy"><span class="eyebrow">FOR THE CLASSROOM · YOUR TOOLKIT</span><h1 id="hero-title">수업의<br><span class="headline-last">도구들<span class="hero-spark" aria-hidden="true">✳</span></span></h1><p>필요한 순간, 바로 꺼내 쓰는 나만의 교실 도구함.<br>타이머, PDF 글자 수, QR, 일기장과 개인정보 점검을 한곳에서 사용해요.</p><a class="button button-dark" href="#timer">교실 타이머 시작하기 <span aria-hidden="true">↗</span></a></div>
+          <div class="hero-art" aria-hidden="true"><svg class="ribbon" viewBox="0 0 600 560" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M-50 161C85 37 184 103 231 176C281 256 380 263 440 170C503 72 569 87 624 120" stroke="#000" stroke-width="116" stroke-linecap="round"/><path d="M-50 161C85 37 184 103 231 176C281 256 380 263 440 170C503 72 569 87 624 120" stroke="#4da2ff" stroke-width="112" stroke-linecap="round"/><path d="M-50 133C85 9 184 75 231 148C281 228 380 235 440 142C503 44 569 59 624 92" stroke="#99c9ff" stroke-width="13" stroke-linecap="round" opacity=".7"/><path d="M-10 474C116 357 153 349 236 406C331 472 429 497 610 359" stroke="#000" stroke-width="100" stroke-linecap="round"/><path d="M-10 474C116 357 153 349 236 406C331 472 429 497 610 359" stroke="#4da2ff" stroke-width="96" stroke-linecap="round"/><path d="M-10 452C116 335 153 327 236 384C331 450 429 475 610 337" stroke="#99c9ff" stroke-width="11" stroke-linecap="round" opacity=".65"/></svg><span class="sticker sticker-star">✳</span><span class="sticker sticker-time">25:00</span><span class="sticker sticker-zap">↗</span></div>
+        </div>
+        <div class="hero-bottom"><span>01 / 작은 도구, 큰 여유</span><span>아래로 스크롤 ↓</span></div>
+      </div>
+      <section class="tools-section band-white" aria-labelledby="tools-title"><div class="section-heading"><div><span class="eyebrow">YOUR TOOLKIT</span><h2 id="tools-title">도구 모음<span class="heading-dot">.</span></h2></div><p>완성된 프로그램은 이 허브 안에서 바로 열어요.<br>다음에 만들 아이디어는 준비 중 카드로 관리하세요.</p></div><p id="storage-notice" class="storage-notice" role="status" hidden>이 브라우저는 파일로 연 페이지의 저장을 허용하지 않습니다. 준비 중 카드는 창을 닫으면 사라질 수 있어요.</p><div id="cards" class="card-grid"></div><button id="add-tool" class="add-card" type="button"><span class="add-icon" aria-hidden="true">＋</span><span><strong>프로그램 계획 추가</strong><small>다음에 만들 도구의 이름과 용도를 적어두세요</small></span><span class="add-arrow" aria-hidden="true">↗</span></button></section>
+      <section class="closing band-gray"><span class="eyebrow">MADE FOR EVERY CLASS</span><h2>좋은 수업은<br><em>작은 도구</em>에서.</h2><p>교실에서 바로 쓰고, 필요한 만큼 늘려가세요.</p><span class="closing-sticker" aria-hidden="true">✓</span></section>
+    </section>
+    <section id="timer-view" class="view timer-view band-blue" data-tool-view aria-labelledby="timer-title" hidden>
+      <div class="timer-top"><div><span class="eyebrow">TOOL NO. 01 / CLASSROOM TIMER</span><h1 id="timer-title">교실 타이머<span class="heading-dot">.</span></h1><p>활동 시간을 정하고, 수업의 리듬을 지켜보세요.</p></div><a class="back-link" href="#home">← 도구 모음으로</a></div>
+      <div class="timer-layout"><div class="timer-main"><div class="timer-card"><div class="timer-card-top"><span class="timer-label">남은 시간</span><span id="timer-status" class="status-pill" role="status">준비</span></div><div id="time-display" class="time-display" role="timer" aria-label="남은 시간 5분 0초">05:00</div><div class="progress-track" role="progressbar" aria-label="남은 시간 비율" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><span id="progress-fill"></span></div><div class="timer-actions"><button id="start-pause" class="button button-dark" type="button">시작하기 <span aria-hidden="true">▶</span></button><button id="reset" class="button button-outline" type="button">처음으로 ↺</button><button id="add-minute" class="button button-outline" type="button">+ 1분</button></div></div><div id="completion-message" class="completion-message" role="alert" hidden>시간이 끝났어요! 다음 활동으로 넘어가 볼까요? ✳</div></div><aside class="timer-side"><div class="settings-card"><span class="eyebrow">QUICK SET</span><h2>몇 분이<br>필요하세요?</h2><div class="presets" role="group" aria-label="빠른 시간 설정"><button type="button" data-seconds="300" class="preset active">5분</button><button type="button" data-seconds="600" class="preset">10분</button><button type="button" data-seconds="900" class="preset">15분</button><button type="button" data-seconds="1500" class="preset">25분</button></div><form id="custom-time" class="custom-time"><label for="minutes">직접 설정</label><div class="custom-row"><div class="input-wrap"><input id="minutes" name="minutes" type="number" min="0" max="180" value="5" inputmode="numeric" aria-label="분"><span>분</span></div><div class="input-wrap"><input id="seconds" name="seconds" type="number" min="0" max="59" value="0" inputmode="numeric" aria-label="초"><span>초</span></div><button type="submit" class="custom-apply" aria-label="시간 적용">적용 ↗</button></div><p id="time-error" class="field-error" aria-live="polite"></p></form></div><div class="tip-card"><span class="tip-star" aria-hidden="true">✳</span><p>활동에 집중할 수 있도록<br><strong>전체 화면</strong>으로 크게 띄워보세요.</p><button id="fullscreen" class="button button-outline" type="button">전체 화면으로 보기 ↗</button></div></aside></div>
+    </section>
+    <section id="pdf-counter-view" class="view pdf-view band-blue" data-tool-view aria-labelledby="pdf-title" hidden>
+      <div class="timer-top"><div><span class="eyebrow">TOOL NO. 02 / PDF COUNTER</span><h1 id="pdf-title">PDF 글자 수<span class="heading-dot">.</span></h1><p>문서의 텍스트를 읽고 글자 수를 이 기기에서 바로 계산해요.</p></div><a class="back-link" href="#home">← 도구 모음으로</a></div>
+      <div class="pdf-layout">
+        <div class="pdf-main">
+          <div id="pdf-dropzone" class="pdf-dropzone" role="group" aria-labelledby="pdf-drop-title">
+            <span class="pdf-file-sticker" aria-hidden="true">PDF</span>
+            <span class="eyebrow">CHOOSE A FILE</span>
+            <h2 id="pdf-drop-title">PDF를 여기에<br>놓아주세요<span class="heading-dot">.</span></h2>
+            <p>또는 아래 버튼을 눌러 컴퓨터에서 선택하세요.</p>
+            <button id="pdf-choose" class="button button-dark pdf-choose" type="button">PDF 파일 선택 ↗</button>
+            <input id="pdf-file" type="file" accept=".pdf,application/pdf" aria-describedby="pdf-privacy pdf-limit">
+            <p id="pdf-limit" class="pdf-limit">최대 100MB · 텍스트가 선택되는 PDF 지원</p>
+          </div>
+          <div id="pdf-working" class="pdf-working" role="status" aria-live="polite" hidden><span class="eyebrow">COUNTING</span><p id="pdf-progress">PDF를 읽고 있어요…</p><div class="pdf-progress-track"><span id="pdf-progress-fill"></span></div></div>
+          <div id="pdf-error" class="pdf-error" role="alert" hidden></div>
+          <div id="pdf-result" class="pdf-result" hidden>
+            <div class="pdf-result-head"><div><span class="eyebrow">RESULT</span><h2>계산 결과<span class="heading-dot">.</span></h2></div><button id="pdf-clear" class="button button-outline" type="button">다른 파일 선택 ↺</button></div>
+            <p id="pdf-filename" class="pdf-filename"></p>
+            <div class="pdf-stats"><div class="pdf-stat pdf-stat-primary"><span>공백 포함</span><strong id="pdf-count-all">0</strong><small>줄바꿈 포함</small></div><div class="pdf-stat"><span>공백 제외</span><strong id="pdf-count-no-space">0</strong><small>띄어쓰기·줄바꿈 제외</small></div></div>
+            <p id="pdf-page-summary" class="pdf-page-summary"></p><p id="pdf-text-warning" class="pdf-text-warning" hidden></p>
+          </div>
+        </div>
+        <aside class="pdf-side"><span class="pdf-lock" aria-hidden="true">✳</span><span class="eyebrow">JUST ON YOUR DEVICE</span><h2>파일은<br>여기에만.</h2><p id="pdf-privacy">선택한 PDF와 계산 결과는 이 브라우저의 메모리에서만 처리합니다. 파일을 서버에 업로드하거나 결과를 저장하지 않습니다.</p><div class="pdf-side-line"></div><p>스캔 이미지로만 된 PDF에는 선택 가능한 텍스트가 없어 글자를 셀 수 없습니다. OCR 기능은 포함하지 않았습니다.</p></aside>
+      </div>
+    </section>
+    <section id="qr-maker-view" class="view qr-view band-blue" data-tool-view aria-labelledby="qr-title" hidden>
+      <div class="timer-top"><div><span class="eyebrow">TOOL NO. 03 / QR MAKER</span><h1 id="qr-title">웹주소 QR<span class="heading-dot">.</span></h1><p>수업 자료의 웹주소를 입력하고 QR 이미지를 저장하세요.</p></div><a class="back-link" href="#home">← 도구 모음으로</a></div>
+      <div class="qr-layout">
+        <div class="qr-form-card">
+          <span class="eyebrow">PASTE A LINK</span><h2>주소 하나면<br>준비 끝<span class="heading-dot">.</span></h2>
+          <form id="qr-form" novalidate>
+            <label for="qr-url">웹주소</label>
+            <input id="qr-url" type="url" inputmode="url" autocomplete="url" spellcheck="false" maxlength="1500" placeholder="https://example.com/class" aria-describedby="qr-help qr-error" required>
+            <p id="qr-help" class="qr-help">http:// 또는 https://로 시작하는 주소를 넣어주세요.</p>
+            <p id="qr-error" class="field-error" role="alert"></p>
+            <button class="button button-dark" type="submit">QR 만들기 <span aria-hidden="true">↗</span></button>
+          </form>
+          <p class="qr-privacy">입력한 주소는 이 브라우저에서만 QR로 변환합니다. 서버로 보내거나 저장하지 않습니다.</p>
+        </div>
+        <div class="qr-result-card">
+          <div class="qr-result-head"><span class="eyebrow">YOUR QR CODE</span><span class="qr-result-sticker" aria-hidden="true">✳</span></div>
+          <div id="qr-empty" class="qr-empty"><span aria-hidden="true">▦</span><p>웹주소를 넣고<br>QR을 만들어 보세요.</p></div>
+          <div id="qr-ready" class="qr-ready" hidden>
+            <div class="qr-canvas-wrap"><canvas id="qr-canvas" width="768" height="768" role="img" aria-label="생성한 웹주소 QR 코드"></canvas></div>
+            <p id="qr-result-url" class="qr-result-url"></p>
+            <button id="qr-download" class="button button-dark" type="button">PNG 저장하기 <span aria-hidden="true">↓</span></button>
+          </div>
+          <p class="qr-tip">배포 전에 휴대전화 카메라로 한 번 스캔해 확인하세요. QR에 넣은 주소는 생성 후 바꿀 수 없습니다.</p>
+        </div>
+      </div>
+    </section>
+    <section id="diary-view" class="view diary-view band-blue" data-tool-view aria-labelledby="diary-title" hidden>
+      <div class="timer-top"><div><span class="eyebrow">TOOL NO. 04 / MY DIARY</span><h1 id="diary-title">나의 일기장<span class="heading-dot">.</span></h1><p>오늘의 기록을 이 컴퓨터에 차곡차곡 남겨 보세요.</p></div><a class="back-link" href="#home">← 도구 모음으로</a></div>
+      <div id="diary-launch" class="diary-launch">
+        <span class="eyebrow">CONNECT YOUR FOLDER</span><h2>저장 폴더를<br>선택해 주세요<span class="heading-dot">.</span></h2>
+        <p>처음 사용할 때 아래 버튼을 누르고 <strong>classroom-hub/data</strong> 폴더를 선택하세요. 이후에는 이 화면에서 바로 일기를 쓰고 지난 기록을 볼 수 있습니다.</p>
+        <button id="diary-connect" class="button button-dark" type="button">일기 폴더 선택하기 ↗</button>
+        <p id="diary-connect-status" class="diary-connect-status" role="status" aria-live="polite"></p>
+        <p id="diary-browser-fallback" hidden>이 브라우저는 폴더 저장을 지원하지 않습니다. Chrome 또는 Edge에서 이 HTML을 열어 주세요. 기존 <strong>교실도구함 열기.cmd</strong>도 사용할 수 있습니다.</p>
+      </div>
+      <div id="diary-app" class="diary-layout" hidden>
+        <div class="diary-editor">
+          <div class="diary-editor-head"><span class="eyebrow">WRITE YOUR DAY</span><button id="diary-new" class="button button-outline" type="button">새 일기 ＋</button></div>
+          <h2 id="diary-form-title">새 일기 쓰기<span class="heading-dot">.</span></h2>
+          <form id="diary-form">
+            <label for="diary-date">날짜</label><input id="diary-date" type="date" required>
+            <label for="diary-entry-title">제목</label><input id="diary-entry-title" type="text" maxlength="120" placeholder="오늘을 한 줄로 표현해 보세요" required>
+            <label for="diary-body">내용</label><textarea id="diary-body" maxlength="20000" rows="12" placeholder="오늘 있었던 일을 편하게 적어 보세요." required></textarea>
+            <p id="diary-status" class="diary-status" role="status" aria-live="polite"></p>
+            <div class="diary-actions"><button id="diary-save" class="button button-dark" type="submit">일기 저장하기 <span aria-hidden="true">↗</span></button><button id="diary-delete" class="button button-outline" type="button" hidden>이 일기 삭제</button></div>
+          </form>
+        </div>
+        <aside class="diary-sidebar"><span class="eyebrow">PAST DAYS</span><h2>지난 기록<span class="heading-dot">.</span></h2><p id="diary-count" class="diary-count"></p><div id="diary-list" class="diary-list" aria-label="저장된 일기"></div><p class="diary-local-note">기록은 이 컴퓨터의 <strong>data/diary.sqlite</strong>에 저장됩니다. 폴더를 복사하면 일기 파일도 함께 백업할 수 있습니다.</p></aside>
+      </div>
+    </section>
+    <section id="privacy-checker-view" class="view privacy-view band-blue" data-tool-view aria-labelledby="privacy-title" hidden>
+      <div class="timer-top"><div><span class="eyebrow">TOOL NO. 05 / PRIVACY CHECK</span><h1 id="privacy-title">개인정보 점검<span class="heading-dot">.</span></h1><p>PDF와 엑셀(.xlsx)의 글자를 이 브라우저에서 확인하고 가린 새 파일을 만들어요.</p></div><a class="back-link" href="#home">← 도구 모음으로</a></div>
+      <div class="privacy-layout">
+        <div class="privacy-main">
+          <div id="privacy-dropzone" class="privacy-dropzone"><span class="eyebrow">CHOOSE A FILE</span><span class="privacy-sticker" aria-hidden="true">✓</span><h2>파일을 여기에<br>놓아주세요<span class="heading-dot">.</span></h2><p>컴퓨터에서 PDF 또는 엑셀(.xlsx) 파일을 선택해도 됩니다.</p><button id="privacy-choose" class="button button-dark" type="button">파일 선택하기 ↗</button><input id="privacy-file" type="file" accept=".pdf,.xlsx,application/pdf,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"><small>30MB 이하 · 암호 없는 파일 · .xls는 .xlsx로 다시 저장</small></div>
+          <div id="privacy-working" class="privacy-state" role="status" aria-live="polite" hidden><span class="eyebrow">WORKING LOCALLY</span><p id="privacy-progress">파일을 읽고 있어요…</p></div>
+          <div id="privacy-error" class="privacy-state privacy-error" role="alert" hidden></div>
+          <div id="privacy-result" class="privacy-result" hidden><div class="privacy-result-head"><div><span class="eyebrow">REVIEW &amp; DOWNLOAD</span><h2>점검 결과<span class="heading-dot">.</span></h2></div><button id="privacy-reset" class="button button-outline" type="button">다른 파일 선택 ↺</button></div><div class="privacy-total"><strong id="privacy-total">0</strong><span>자동으로 가린 항목</span></div><div id="privacy-breakdown" class="privacy-breakdown"></div><h3>가린 내용 미리보기</h3><ul id="privacy-samples" class="privacy-samples"></ul><p id="privacy-result-note" class="privacy-result-note"></p><p class="privacy-check-note">자동 점검만으로 개인정보가 모두 가려졌다고 보장할 수 없습니다. 다운로드한 파일을 열어 직접 확인해 주세요.</p><button id="privacy-download" class="button button-dark" type="button">가린 파일 다운로드 ↓</button></div>
+        </div>
+        <aside class="privacy-side"><span class="eyebrow">ON THIS COMPUTER</span><h2>파일은<br>여기에서만<span class="heading-dot">.</span></h2><p>선택한 파일은 브라우저 메모리에서 처리합니다. 이 도구는 파일이나 결과를 서버로 보내지 않습니다.</p><div class="privacy-side-line"></div><h3>점검하는 정보</h3><p>주민등록번호, 전화번호, 이메일, ‘학번’ 표시가 붙은 번호, ‘이름’ 표시가 붙은 이름을 찾습니다. 엑셀은 관련 열 제목 아래의 값도 가립니다.</p><div class="privacy-side-line"></div><h3>결과 파일 안내</h3><p>원본의 숨은 정보가 남지 않도록 새 파일을 만듭니다. PDF는 추출한 글자로 만든 이미지 PDF이고, 엑셀은 셀 값만 담습니다. 서식·이미지·수식·메타데이터는 제외됩니다. 스캔 이미지·손글씨 PDF는 OCR을 지원하지 않습니다.</p></aside>
+      </div>
+    </section>
+  </main>
+  <footer><span>교실 도구함 © 2026</span><span>수업을 위한 작은 웹 도구</span></footer>
+  <dialog id="tool-dialog" aria-labelledby="dialog-title"><form id="tool-form"><div class="dialog-head"><div><span class="eyebrow">YOUR TOOLKIT</span><h2 id="dialog-title">프로그램 계획 추가</h2></div><button class="dialog-close" type="button" id="close-dialog" aria-label="닫기">×</button></div><label for="tool-name">이름</label><input id="tool-name" name="name" maxlength="32" required placeholder="예: 모둠 뽑기"><label for="tool-description">한 줄 설명</label><input id="tool-description" name="description" maxlength="90" placeholder="어떤 때 쓰는 도구인가요?"><p class="dialog-help">계획 카드는 이 브라우저에 저장됩니다. 프로그램 기능을 만들면 허브 내부 화면으로 등록할 수 있어요.</p><p id="tool-error" class="field-error" aria-live="polite"></p><button class="button button-dark dialog-submit" type="submit">계획 저장하기 ↗</button></form></dialog>
+</body>
+</html>
