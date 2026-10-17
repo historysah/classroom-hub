@@ -26,3 +26,9 @@ node_modules/
 Thumbs.db
 coverage/
 _sqljs_package_tmp/
+.firebase/
+.vercel/
+.deployment-tools/
+apps/*/public/
+firebase-debug.log*
+*-debug.log*

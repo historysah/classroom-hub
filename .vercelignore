@@ -1,0 +1,11 @@
+data/**
+.git/**
+node_modules/**
+.firebase/**
+.deployment-tools/**
+*.sqlite*
+*.db
+.env*
+*.pdf
+*.xlsx
+*.csv

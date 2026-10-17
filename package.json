@@ -7,9 +7,13 @@
   "scripts": {
     "test": "node verify.cjs && node verify-diary.cjs && node verify-privacy.cjs",
     "test:public": "node verify-public.cjs",
+    "build:qr": "node scripts/build-cloud.cjs qr",
+    "build:diary": "node scripts/build-cloud.cjs diary",
     "start": "node server.cjs --open"
   },
   "dependencies": {
+    "@supabase/supabase-js": "2.118.0",
+    "firebase": "13.0.0",
     "jszip": "3.10.1",
     "pdf-lib": "1.17.1",
     "pdfjs-dist": "6.2.108",
@@ -17,5 +21,5 @@
     "sql.js": "1.15.0",
     "xml-js": "1.6.11"
   },
-  "devDependencies": {"@napi-rs/canvas": "0.1.80"}
+  "devDependencies": {"@napi-rs/canvas": "0.1.80", "esbuild": "0.28.2"}
 }
